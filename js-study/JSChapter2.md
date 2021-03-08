@@ -7,4 +7,5 @@
 ### 2. Truthy와 Falsy
 
 - undefined, null 체킹
--
+- undefined, null, 0, '', NaN, false :
+- 3(숫자), hello(문자), ['array'], [], {} :
