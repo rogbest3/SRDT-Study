@@ -43,7 +43,7 @@ const getName = (animal) => {
   return undefined;
 };
 ```  
-> => 코드 단축
+> - 코드 단축
 ```javascript
   const getName = (animal) => {
     return animal && animal.name
@@ -80,7 +80,7 @@ const getName = (animal) => {
   return name;
 };
 ```  
-> => 코드 단축
+> - 코드 단축
 ```javascript
   const getName = (animal) => {
     const name = animal && animal.name;
@@ -100,7 +100,7 @@ const getName = (animal) => {
   
   calculateCircleArea();
 ```
-> => 파라미터 없을 시 기본값으로 r = 1을 사용하는 단축 코드
+> - 파라미터 없을 시 기본값으로 r = 1을 사용하는 단축 코드
 ```javascript
   const calculateCircleArea = (r = 1) => {
     return Math.PI * radius * radius;
