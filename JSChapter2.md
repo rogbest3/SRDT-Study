@@ -90,7 +90,7 @@ const getName = (animal) => {
 ```
 
 ### 4. 함수의 기본 파라미터
-> - 함수의 파라미터 사용 시 함수 호출 때 파라미터를 넣어 주지 않았을 경우 에러 방지하기 위해 사용
+> - 함수의 파라미터 사용 시 함수 호출 때 파라미터를 넣어 주지 않았을 경우 에러 방지하기 위한 코드
 > 
 ```javascript
   const calculateCircleArea = (r) => {
@@ -178,15 +178,64 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
 ```
 
 
+### 6. 비구조화 할당 ( 구조 분해 )
+> - 값이 없을 경우 에러 방지하기 위한 코드 
+> 
+```javascript
+  const object = { a: 1, b : 2 }
+ 
+  const print = ({ a, b }) => {
+    console.log(a);
+    console.log(b);
+  };
+
+  print(object);
+```
+> - 함수의 파라미터 비구조 할당 기본 값 설정
+```javascript
+  const object = { a: 1 }
+  
+  const print = ({ a, b = 2 }) => {
+    console.log(a);
+    console.log(b);
+  };
+
+  print(object);
+```
+
+> - 비구조 할당 기본 값 설정
+```javascript
+  const object = { a: 1 }
+  
+  const { a, b = 2 } = object;
+  
+  console.log(a);
+  console.log(b);
+```
 
 
+> - 비구조 할당 시 이름 변경
+```javascript
+    const animal = {
+      name: "댕댕이",
+      type: "개",
+    };
+    const nickname = animal.name;
 
+    console.log(nickname);
+```
 
+```javascript
+    const animal = {
+      name: "댕댕이",
+      type: "개",
+    };
+    
+    // 앞에는 원래 이름, 뒤에는 새로 짓는 이름
+    const { name: nickname } = animal;
 
-
-
-
-
+    console.log(nickname);
+```
 
 
 
