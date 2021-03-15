@@ -270,10 +270,36 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
   };
   console.log(extracted);
 ```
+> - 비구조화 할당 한번에 여러값 확인
+```javascript
+  const deepObject = {
+    state: {
+      information: {
+        name: "velopert",
+        languages: ["korean", "english", "chinese"],
+      },
+    },
+    value: 5,
+  };
 
+  const {
+    state: {
+      // information: { name, languages },
+      languages: [firstLang, secondLang],
+      value,
+    },
+  } = deepObject
 
-
-
+  // 특정 객체를 만들 때 특정 key로 선언된 값이 이미 있으면 name : name에서 value 값 설정( : name )을 생략해도 됨
+  const extracted = {
+    name,
+    // languages,
+    firstLang,
+    secondLang,
+    value,
+  };
+  console.log(extracted);
+```
 
 
 
