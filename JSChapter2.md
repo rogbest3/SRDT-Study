@@ -13,6 +13,7 @@
 > - false, 0, -0, 0n, -0n, "", '', ``, null, undefined, NaN, 문자 :
 
 > - ex) AND 연산자
+
         false && "dog"
         => false 출력
 
