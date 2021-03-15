@@ -6,10 +6,10 @@
 
 ### 2. Truthy와 Falsy
 
-## Truthy : true로 평가되는 값
+#### Truthy : true로 평가되는 값
 - true, {}, [], 1, "0", "false", new Date(), -1, 12n, 3.14, Infinity, -Infinity
 
-## Falsy : false로 평가되는 값 
+#### Falsy : false로 평가되는 값 
 - false, 0, -0, 0n, -0n, "", '', ``, null, undefined, NaN, 문자 :
 
 - ex) AND 연산자
