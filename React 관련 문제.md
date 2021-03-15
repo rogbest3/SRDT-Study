@@ -1,7 +1,7 @@
 ## React 관련 문제
 
 ### LifeCycle 함수 두번 호출
-> - StrictMode에서 호출시 자동으로 문제를 찾아주는것은 불가능하다. 하지만 조금 더 부작용을 예측할 수 있게끔 만들어서 문제가 되는 부분을 발견할 수 있도록 도와준다. 그래서 React는 아래의 함수를 의도적으로 두번씩 호출한다.
+- StrictMode에서 호출시 자동으로 문제를 찾아주는것은 불가능하다. 하지만 조금 더 부작용을 예측할 수 있게끔 만들어서 문제가 되는 부분을 발견할 수 있도록 도와준다. 그래서 React는 아래의 함수를 의도적으로 두번씩 호출한다.
   - 클래스 컴포넌트의 constructor, render 그리고 shouldComponentUpdate 메서드
   + 클래스 컴포넌트의 getDerivedStateFromProps static 메서드
   - 함수 컴포넌트 바디
