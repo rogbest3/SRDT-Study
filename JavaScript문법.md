@@ -177,7 +177,6 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
   makeSound("개")
 ```
 
-
 ### 6. 비구조화 할당 ( 구조 분해 )
 > 1. 함수의 파라미터 비구조 할당 기본 값 설정 ( 값이 없을 경우 에러 방지하기 위한 코드 )
 > 
@@ -285,7 +284,10 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
   const {
     state: {
       // information: { name, languages },
-      languages: [firstLang, secondLang],
+      information: {
+          name,
+          languages: [firstLang, secondLang],
+        },
       value,
     },
   } = deepObject
@@ -300,6 +302,185 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
   };
   console.log(extracted);
 ```
+
+### 7. spread와 rest - spread 연산자 ( 특정 객체나 배열의 값들을 퍼트림 ) 
+> 1. 기존에 만들었던 객체를 참고하여 새로운 객체를 만들 경우
+> 
+```javascript
+  const slime = {
+    name: "슬라임",
+  };
+  const cuteSlime = {
+    name: "슬라임",
+    attribute: "cute",
+  };
+  const purpleCuteSlime = {
+    name: "슬라임",
+    attribute: "cute",
+    color: "purple",
+  };
+  console.log(slime);
+  console.log(cuteSlime);
+  console.log(purpleCuteSlime);
+```
+
+> - spread를 사용하지 않고 프로퍼티 추가로 만든 객체는 같음 ( slime === purpleCuteSlime, 서로 같은 객체 )
+```javascript
+  const slime = {
+    name: "슬라임",
+  };
+  const cuteSlime = slime;
+  cuteSlime.attribute = "cute";
+
+  const purpleCuteSlime = cuteSlime;
+  purpleCuteSlime.color = "purple";
+  
+  console.log(slime);
+  console.log(cuteSlime);
+  console.log(purpleCuteSlime);
+```
+
+> - spread를 사용해 만든 객체는 같지 않음 ( slime !== purpleCuteSlime, 서로 다른 객체 )
+```javascript
+  const slime = {
+    name: "슬라임",
+  };
+  const cuteSlime = {
+    ...slime,
+    attribute: "cute",
+  };
+  const purpleCuteSlime = {
+    ...cuteSlime,
+    color: "purple",
+  };
+  console.log(slime);
+  console.log(cuteSlime);
+  console.log(purpleCuteSlime);
+```
+
+> 2. 기존에 만들었던 배열을 참고하여 새로운 배열을 만들 경우
+```javascript
+  const animals = ["고양이", "개", "너구리"];
+  const anotherAnimals = [...animals, "참새"];
+  // const anotherAnimals = animals.concat("참새");
+
+  console.log(animals);
+  console.log(anotherAnimals);
+```
+
+> 3. spreat 연산자 중복 사용
+```javascript
+  const numbers = [1, 2, 3, 4, 5];
+
+  const spreadNumbers = [...numbers, 1000, ...numbers];
+
+  console.log(spreadNumbers);
+  // [1, 2, 3, 4, 5, 1000, 1, 2, 3, 4, 5] 출력
+```
+
+
+### 8. spread와 rest - rest ( 특정 객체나 배열의 값들을 모음 ) 
+> 1. 기존에 만들었던 객체의 특정 값을 제외한 나머지 값들을 모음
+> 
+```javascript
+  const purpleCuteSlime = {
+    name: "슬라임",
+    attribute: "cute",
+    color: "purple",
+  };
+  
+  const { color, ...cuteSlime } = purpleCuteSlime;
+
+  console.log(color);
+  // purple 출력
+  console.log(cuteSlime);
+  // {name: "슬라임", attribute: "cute"} 출력
+
+  const { attribute, ...slime } = cuteSlime;
+
+  console.log(attribute);
+  // cute 출력
+  console.log(slime);
+  // {name: "슬라임"} 출력
+```
+
+> 2. 기존에 만들었던 배열의 특정 값을 제외한 나머지 값들을 모음
+> 
+```javascript
+  const numbers = [0, 1, 2, 3, 4, 5, 6];
+
+  // 주의 사항 - 배열에서 ...rest는 맨 마지막에 와야됨
+  const [one, two, ...rest] = numbers;
+
+  console.log(one);
+  // 0 출력
+  console.log(two);
+  // 1 출력
+  console.log(rest);
+  // [1, 2, 3, 4, 5, 6] 출력
+```
+
+### 9. spread와 rest - 함수 파라미터에서의 rest 
+> - 여러 값을 파라미터로 받아 작업을 수행하는 경우
+> 
+```javascript
+  const sum = (a, b, c, d, e, f, g) => {
+    let result = 0;
+    if (a) result += a;
+    if (b) result += b;
+    if (c) result += c;
+    if (d) result += d;
+    if (e) result += e;
+    if (f) result += f;
+    if (g) result += g;
+    return result;
+  };
+  
+  console.log(sum(1, 2, 3, 4, 5, 6, 7, 8));
+  // 28 출력 ( 1 ~ 7까지 더한 값 )
+```
+> - 파라미터를 ...rest로 받으면 하나의 배열로 만들어 받음
+```javascript
+  const sum = (...rest) => {
+    return rest.reduce((acc, current) => acc + current, 0);
+  };
+  
+  console.log(sum(1, 2, 3, 4, 5, 6, 7, 8));
+  // 36 출력 ( 1 ~ 8까지 인자를 전부 더한 값 )
+```
+
+### 10. spread와 rest - 함수 인자에서의 spread 
+> - 여러 값을 인자로 넘겨주는 작업을 수행하는 경우
+> 
+```javascript
+  const sum = (...rest) => {
+    return rest.reduce((acc, current) => acc + current, 0);
+  };
+  
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+  console.log(sum(...numbers));
+```
+
+```javascript
+    const subtract = (x, y) => {
+      return x - y;
+    };
+    const numbers1 = [1, 2];
+    const result = subtract(...numbers1);
+    // const result = subtract(numbers[0], numbers[1])
+    
+    console.log(result);
+```
+### 10-1. spread와 rest - max() 코딩
+> - 숫자 n개의 인자가 주어질 경우 최대 값 출력
+```javascript
+  const max = (...rest) => {
+    return rest.reduce((max, current) => Math.max(max, current, 0));
+  };
+  const numbers = [1, 2, 10, 3, 20, 8, 9]; 
+  console.log(...numbers);
+```
+
 
 
 
