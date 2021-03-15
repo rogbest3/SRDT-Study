@@ -7,8 +7,6 @@
   - 함수 컴포넌트 바디
   - State updater 함수 (setState의 첫 번째 인자)
   - useState, useMemo 그리고 useReducer에 전달되는 함수
- 
-  - Strict 모드는 개발 모드에서만 활성화되기 때문에, 프로덕션 빌드에는 영향을 끼치지 않습니다
 
 ```react
   ReactDOM.render(
@@ -19,3 +17,4 @@
 );
 ```
   - <React.StrictMode> 삭제하면 문제 해결
+    - Strict 모드는 개발 모드에서만 활성화되기 때문에, 프로덕션 빌드에는 영향을 끼치지 않습니다
