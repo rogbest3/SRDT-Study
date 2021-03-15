@@ -70,7 +70,7 @@ const getName = (animal) => {
   => dog 출력
   
 ```        
-> 단축 코드 예시
+> - 단축 코드 예시
 ```javascript
 const getName = (animal) => {
   const name = animal && animal.name;
@@ -88,3 +88,57 @@ const getName = (animal) => {
     return name || "이름 없음"
   };
 ```
+
+### 4. 함수의 기본 파라미터
+> - 함수의 파라미터 사용 시 함수 호출 때 파라미터를 넣어 주지 않았을 경우 에러 방지하기 위해 사용
+> 
+```javascript
+  const calculateCircleArea = (r) => {
+    const radius = r || 1;
+    return Math.PI * radius * radius;
+  };
+  
+  calculateCircleArea();
+```
+> => 파라미터 없을 시 기본값으로 r = 1을 사용하는 단축 코드
+```javascript
+  const calculateCircleArea = (r = 1) => {
+    return Math.PI * radius * radius;
+  };
+  
+  calculateCircleArea();
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
