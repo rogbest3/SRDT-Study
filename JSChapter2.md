@@ -29,3 +29,39 @@
 
         0 && "dog"
         => 0 출력
+
+> OR 연산자
+> - 해당 값이 없을 경우 다른 값을 줄 때 사용을 많이 사용함
+> - 연산자 앞에 오는 값이 **truthy**한 값일 경우 연산자 **앞**에 값을 출력
+>
+        true || "dog"
+        => true 출력
+
+        "hello" || "dog"
+        => dog 출력
+        
+> - 연산자 앞에 오는 값이 **falsy**한 값일 경우 연산자 **뒤**에 값을 출력
+>
+        false || "dog"
+        => dog 출력
+
+        0 || "dog"
+        => dog 출력
+        
+> 코드 단축 예시
+
+  const getName = (animal) => {
+    const name = animal && animal.name;
+    if (!name) {
+      return "이름 없음";
+    }
+
+    return name;
+  };
+  
+> =>
+  const getName = (animal) => {
+    const name = animal && animal.name;
+    
+    return name || "이름 없음"
+  };
