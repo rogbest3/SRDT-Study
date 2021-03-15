@@ -179,7 +179,7 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
 
 
 ### 6. 비구조화 할당 ( 구조 분해 )
-> - 값이 없을 경우 에러 방지하기 위한 코드 
+> 1. 함수의 파라미터 비구조 할당 기본 값 설정 ( 값이 없을 경우 에러 방지하기 위한 코드 )
 > 
 ```javascript
   const object = { a: 1, b : 2 }
@@ -191,7 +191,7 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
 
   print(object);
 ```
-> - 함수의 파라미터 비구조 할당 기본 값 설정
+> 
 ```javascript
   const object = { a: 1 }
   
@@ -214,31 +214,62 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
 ```
 
 
-> - 비구조 할당 시 이름 변경
+> 2. 비구조 할당 시 이름 변경
 ```javascript
-    const animal = {
-      name: "댕댕이",
-      type: "개",
-    };
-    const nickname = animal.name;
+  const animal = {
+    name: "댕댕이",
+    type: "개",
+  };
+  const nickname = animal.name;
 
-    console.log(nickname);
+  console.log(nickname);
 ```
 
 ```javascript
-    const animal = {
-      name: "댕댕이",
-      type: "개",
-    };
-    
-    // 앞에는 원래 이름, 뒤에는 새로 짓는 이름
-    const { name: nickname } = animal;
+  const animal = {
+    name: "댕댕이",
+    type: "개",
+  };
 
-    console.log(nickname);
+  // 앞에는 원래 이름, 뒤에는 새로 짓는 이름
+  const { name: nickname } = animal;
+
+  console.log(nickname);
 ```
 
+> 3. 배열 비구조 할당
+```javascript
+  const array = [1];
 
+  const { one, two = 2 } = array;
 
+  console.log(one);
+  console.log(two);
+```
+
+> 4. 객체의 깊은 값 확인
+```javascript
+  const deepObject = {
+    state: {
+      information: {
+        name: "velopert",
+        languages: ["korean", "english", "chinese"],
+      },
+    },
+    value: 5,
+  };
+
+  const { name, languages } = deepObject.state.information;
+  const { value } = deepObject;
+
+  // 특정 객체를 만들 때 특정 key로 선언된 값이 이미 있으면 name : name에서 value 값 설정( : name )을 생략해도 됨
+  const extracted = {
+    name,
+    languages,
+    value,
+  };
+  console.log(extracted);
+```
 
 
 
