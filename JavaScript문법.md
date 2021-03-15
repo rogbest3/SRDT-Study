@@ -471,6 +471,7 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
     
     console.log(result);
 ```
+
 ### 10-1. spread와 rest - max() 코딩
 > - 숫자 n개의 인자가 주어질 경우 최대 값 출력
 ```javascript
@@ -479,10 +480,107 @@ const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
   };
   const numbers = [1, 2, 10, 3, 20, 8, 9]; 
   console.log(...numbers);
+  // 20 출력
 ```
 
+### 11. Scope
+> - 선언한 해당 변수 또는 함수의 유효한 범위
+> > * global scope ( 전역, 모든 곳에서 사용 가능 ) 
+> > * function scope ( 특정 함수 내부만 사용 가능 )
+> > * block scope ( if, for 같은 {}로 감싸진 block 내부에서만 사용 가능 )
+> - 예시 1
+```javascript
+  // global scope
+  const value = "hello";
 
+  const myFunction = () => {
+    console.log("myFunction : ", value);
+  };
 
+  const otherFunction = () => {
+    // function scope
+    const value = "bye";
+    console.log("otherFunction : ", value);
+  };
 
+  myFunction();
+  // hello 출력
+  otherFunction();
+  // bye 출력
 
+  console.log("global scope : ", value);
+  // hello 출력
+```
 
+> - 예시 2
+```javascript
+  const value = "hello";
+
+  const myFunction = () => {
+    const value = "bye";
+    const anotherValue = "world";
+
+    const functionInside = () => {
+      console.log("functionInside : ", value, anotherValue);
+      // hello world 출력
+    };
+
+    functionInside();
+  };
+
+  myFunction();
+
+  console.log("global scope : ", value);
+  // hello 출력
+  console.log(anotherValue);
+  // is not definde 에러
+```
+
+> - 예시 3
+```javascript
+  const value = "hello";
+
+  const myFunction = () => {
+    const value = "bye";
+
+    if (true) {
+      const value = "world";
+      console.log("block scope : ", value);
+      // world 출력
+    }
+    console.log("function scope : ", value);
+    // bye 출력
+  };
+
+  myFunction();
+  console.log("global scope : ", value);
+  // hello 출력
+```
+
+> - 예시 4
+> > * var를 사용하여 변수를 선언한 경우 변수 명이 같으면 scope 구분이 정확하게 나뉘지 않게 될 수 있으니 const나 let으로 사용
+> > * if block에서 선언한 변수의 scope가 block scope가 아니라 function scope로 변경되어 기존의 있는 값에 영향이 감
+```javascript
+  var value = "hello";
+
+  const myFunction = () => {
+    var value = "bye";
+
+    if (true) {
+      var value = "world";
+      console.log("block scope : ", value);
+      // world 출력
+    }
+    console.log("function scope : ", value);
+    // world 출력
+  };
+
+  myFunction();
+  console.log("global scope : ", value);
+  // hello 출력
+```
+
+### 11. Hoisting
+> - 선언되지 않은 함수, 변수를 끌어올려서 사용하는 작동 방식
+> > * const나 let은 호이스팅이 발생하지 않지만 var, function은 호이스팅 발생함
+> > * 호이스팅은 코드 헷갈림, 유지보수, 의도치 않은 동작 등 좋지 않기 때문에 피해야 함
