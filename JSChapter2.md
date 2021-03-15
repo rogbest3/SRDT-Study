@@ -51,7 +51,7 @@ const getName = (animal) => {
 ```
 
 > #### OR 연산자
-> - 해당 값이 없을 경우 다른 값을 줄 때 사용을 많이 사용함
+> - 특정 값이 없을 경우 다른 값을 줄 때 사용을 많이 사용함
 
 > - 연산자 앞에 오는 값이 **truthy**한 값일 경우 연산자 **앞**에 값을 출력
 ```
@@ -110,7 +110,7 @@ const getName = (animal) => {
 ```
 
 ### 5. 스마트한 조건문 사용
-> - 함수의 파라미터 사용 시 함수 호출 때 파라미터를 넣어 주지 않았을 경우 에러 방지하기 위해 사용
+> - 특정 값이 여러 값중에 하나인지 확인하는 경우
 > 
 ```javascript
   const isAnimal = (text) => {
@@ -126,13 +126,56 @@ const getName = (animal) => {
   };
 ```
 
+```javascript
+const isAnimal = (text) => ["고양이", "개", "너구리"].includes(text);
+```
 
+> - 특정 값에 따라 리턴 값이 다른 경우
+```javascript
+  const getSound = (animal) => {
+    if (animal === "개") return "멍멍";
+    if (animal === "고양이") return "야옹";
+    if (animal === "참새") return "짹짹";
+    return "...?";
+  };
+```
+> - 객체를 사용한 smart code
+```javascript
+  const getSound = (animal) => {
+    const sounds = {
+      개: "멍멍",
+      고양이: "야옹",
+      참새: "짹짹",
+    };
+    return sounds[animal] || "...?";
+  };
+```
+> - 특정 값에 따라 다른 코드 실행하기 위한 경우
+```javascript
+  const makeSound = (animal) => {
+    const tasks = {
+      개: () => {
+        console.log("멍멍");
+      },
+      고양이() {
+        console.log("야옹");
+      },
+      참새() {
+        console.log("짹짹");
+      },
+    };
 
+    const task = tasks[animal];
+    if (!task) {
+      console.log("...?");
+      return;
+    }
 
-
-
-
-
+    task();
+  };
+  
+  makeSound("개")
+```
 
 
 
