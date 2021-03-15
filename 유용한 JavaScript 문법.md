@@ -1,4 +1,4 @@
-## JavaScript 문법
+## 유용한 JavaScript 문법
 
 ### 1. 삼항연산자
 
