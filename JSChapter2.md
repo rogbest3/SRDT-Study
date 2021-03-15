@@ -103,14 +103,28 @@ const getName = (animal) => {
 > - 파라미터 없을 시 기본값으로 r = 1을 사용하는 단축 코드
 ```javascript
   const calculateCircleArea = (r = 1) => {
-    return Math.PI * radius * radius;
+    return Math.PI * r * r;
   };
   
   calculateCircleArea();
 ```
 
+### 5. 스마트한 조건문 사용
+> - 함수의 파라미터 사용 시 함수 호출 때 파라미터를 넣어 주지 않았을 경우 에러 방지하기 위해 사용
+> 
+```javascript
+  const isAnimal = (text) => {
+    return text === "고양이" || text === "개" || text === "너구리";
+  };
+```
+> - 배열의 내장 함수 includes를 사용한 smart code
+```javascript
+  const isAnimal = (text) => {
+    const animals = ["고양이", "개", "너구리"];
 
-
+    return animals.includes(text);
+  };
+```
 
 
 
