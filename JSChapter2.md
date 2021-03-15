@@ -48,18 +48,17 @@
         0 || "dog"
         => dog 출력
         
-> 코드 단축 예시
+> 단축 코드 예시
 ```javascript
-  const getName = (animal) => {
-    const name = animal && animal.name;
-    if (!name) {
-      return "이름 없음";
-    }
-
-    return name;
-  };
+const getName = (animal) => {
+  const name = animal && animal.name;
+  if (!name) {
+    return "이름 없음";
+  }
+  return name;
+};
 ```  
-> =>
+> => 코드 단축
 ```javascript
   const getName = (animal) => {
     const name = animal && animal.name;
