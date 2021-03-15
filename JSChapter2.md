@@ -49,7 +49,7 @@
         => dog 출력
         
 > 코드 단축 예시
-
+```javascript
   const getName = (animal) => {
     const name = animal && animal.name;
     if (!name) {
@@ -58,10 +58,12 @@
 
     return name;
   };
-  
+```  
 > =>
+```javascript
   const getName = (animal) => {
     const name = animal && animal.name;
     
     return name || "이름 없음"
   };
+```
