@@ -12,8 +12,16 @@
 > Falsy : false로 평가되는 값 
 > - false, 0, -0, 0n, -0n, "", '', ``, null, undefined, NaN, 문자 :
 
-> - ex) AND 연산자
-
+### 3. 단축 평가 논리 계산법
+> AND 연산자
+> - 연산자 앞에 오는 값이 truthy한 값일 경우 연산자 뒤에 값을 출력
+        true && "dog"
+        => dog 출력
+        
+        "hello" && "dog"
+        => dog 출력
+        
+> - 연산자 앞에 오는 값이 falsy한 값일 경우 연산자 에 값을 출력
         false && "dog"
         => false 출력
 
