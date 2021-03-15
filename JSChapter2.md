@@ -14,8 +14,8 @@
 
 ### 3. 단축 평가 논리 계산법
 > #### AND 연산자
-> > 연산자 앞에 오는 값이 **truthy**한 값일 경우 연산자 **뒤**에 값을 출력
-> > 
+> -연산자 앞에 오는 값이 **truthy**한 값일 경우 연산자 **뒤**에 값을 출력
+> 
 ```
   true && "dog"
   => dog 출력
@@ -24,8 +24,8 @@
   => dog 출력
 ```       
 
-> > 연산자 앞에 오는 값이 **falsy**한 값일 경우 연산자 **앞**에 값을 출력
-> >
+> -연산자 앞에 오는 값이 **falsy**한 값일 경우 연산자 **앞**에 값을 출력
+>
 ```
   false && "dog"
   => false 출력
@@ -34,7 +34,7 @@
   => 0 출력
 ```
 
-> > 단축 코드 예시
+> - 단축 코드 예시
 ```javascript
 const getName = (animal) => {
   if (animal) {
@@ -43,7 +43,7 @@ const getName = (animal) => {
   return undefined;
 };
 ```  
-> > => 코드 단축
+> => 코드 단축
 ```javascript
   const getName = (animal) => {
     return animal && animal.name
@@ -51,9 +51,9 @@ const getName = (animal) => {
 ```
 
 > #### OR 연산자
-> > 해당 값이 없을 경우 다른 값을 줄 때 사용을 많이 사용함
+> - 해당 값이 없을 경우 다른 값을 줄 때 사용을 많이 사용함
 
-> > 연산자 앞에 오는 값이 **truthy**한 값일 경우 연산자 **앞**에 값을 출력
+> - 연산자 앞에 오는 값이 **truthy**한 값일 경우 연산자 **앞**에 값을 출력
 ```
   true || "dog"
   => true 출력
@@ -61,7 +61,7 @@ const getName = (animal) => {
   "hello" || "dog"
   => dog 출력
 ```        
-> >- 연산자 앞에 오는 값이 **falsy**한 값일 경우 연산자 **뒤**에 값을 출력
+> - 연산자 앞에 오는 값이 **falsy**한 값일 경우 연산자 **뒤**에 값을 출력
 ```
   false || "dog"
   => dog 출력
@@ -70,7 +70,7 @@ const getName = (animal) => {
   => dog 출력
   
 ```        
-> > 단축 코드 예시
+> 단축 코드 예시
 ```javascript
 const getName = (animal) => {
   const name = animal && animal.name;
@@ -80,7 +80,7 @@ const getName = (animal) => {
   return name;
 };
 ```  
-> > => 코드 단축
+> => 코드 단축
 ```javascript
   const getName = (animal) => {
     const name = animal && animal.name;
