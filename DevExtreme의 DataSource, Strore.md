@@ -6,7 +6,7 @@
   - 핵심 데이터 레이어 개체
     - DataSource 및 Stores
     
- - DataSource와 Store가 상호 작용하는 방식
+  - DataSource와 Store가 상호 작용하는 방식
 ![](https://js.devexpress.com/Content/images/doc/20_2/PhoneJS/scheme-data-layer.png)
 
 ### DataSource
