@@ -9,7 +9,7 @@
   - DataSource와 Store가 상호 작용하는 방식
 ![](https://js.devexpress.com/Content/images/doc/20_2/PhoneJS/scheme-data-layer.png)
 
-### DataSource
+#### DataSource
 - 데이터 작업을 단순화하기 위한 것으로 정렬, 그룹화, 필터링을 유지하고 데이터 변환 속성을 유지하고 데이터가로드 될 때마다 적용하는 stateful object 임
   - stateful 
     - 유지 관리하는 memory (state)가 있음
@@ -27,7 +27,7 @@ function int addOne()
 ```
 - DataSource 기본 데이터 액세스 logic은 저장소에서 격리됨
 
-### Strore
+#### Strore
 - 데이터를 읽고 수정하기 위한 범용 인터페이스를 구현하는 stateless object 임
   - stateful 
     - 유지 관리하는 memory (state)가 없음
