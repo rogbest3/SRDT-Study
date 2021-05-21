@@ -46,19 +46,203 @@ const onIncease = useCallback( ()=>{
 > > > - $ yarn add polished 설치하여 사용
 > > - 
 
-```javascript
- background: ${lighten(0.1, '#228be6')};
- 
- background: ${darken(0.1, '#228be6')};
-```
-
 ```css
  background: ${lighten(0.1, '#228be6')};
  
  background: ${darken(0.1, '#228be6')};
 ```
 
+> #### ThemeProvider
+> > - styled-components 로 만드는 모든 컴포넌트에서 조회하여 사용 할 수 있는 전역적인 값을 설정
 
+```javascript
+function App() {
+  return (
+    <ThemeProvider
+      theme={{
+        palette: {
+          blue: '#228be6',
+          gray: '#495057',
+          pink: '#f06595'
+        }
+      }}
+    >
+      <AppBlock>
+        <Button>BUTTON</Button>
+        <Button color="gray">BUTTON</Button>
+        <Button color="pink">BUTTON</Button>
+      </AppBlock>
+    </ThemeProvider>
+  );
+}
+```
+> > - theme을 설정하면 ThemeProvider 내부에 렌더링된 styled-components 로 만든 컴포넌트에서 palette를 조회하여 사용 가능
 
+```javascript
+const StyledButton = styled.button`
+  ${props => {
+    const selected = props.theme.palette[props.color];
+    return css`
+      background: ${selected};
+      &:hover {
+        background: ${lighten(0.1, selected)};
+      }
+      &:active {
+        background: ${darken(0.1, selected)};
+      }
+    `;
+  }}
+`  
+function Button({ children, color, ...rest }) {
+  return <StyledButton color={color} {...rest}>{children}</StyledButton>;
+}
 
+Button.defaultProps = {
+  color: 'blue'
+};
+```
 
+> > - 비구조화 할당 문법을 사용하여 리팩토링
+```javascript
+const StyledButton = styled.button`
+  ${({ theme, color }) => {
+    const selected = theme.palette[color];
+    return css`
+      ...
+    `;
+  }}
+`  
+```
+
+> > - 색상에 관련된 코드로 분리하여 사용 가능 
+```javascript
+const colorStyles = css`
+  ${({ theme, color }) => {
+    const selected = theme.palette[color];
+    return css`
+      ...
+    `;
+  }}
+`;
+
+const StyledButton = styled.button`
+  ...
+
+  /* 색상 */
+  ${colorStyles}
+
+  ...
+`;
+```
+> > - 중복되는 코드
+```javascript
+const sizeStyles = css`
+  ${props =>
+    props.size === 'large' &&
+    css`
+      height: 3rem;
+      font-size: 1.25rem;
+    `}
+
+  ${props =>
+    props.size === 'medium' &&
+    css`
+      height: 2.25rem;
+      font-size: 1rem;
+    `}
+
+    ${props =>
+      props.size === 'small' &&
+      css`
+        height: 1.75rem;
+        font-size: 0.875rem;
+      `}
+`;
+
+const StyledButton = styled.button`
+  ...
+
+  /* 색상 */
+  ${sizeStyles}
+
+  ...
+`;
+```
+> > > - 중복되는 코드들 리팩토링
+```javascript
+const sizes = {
+  large: {
+    height: '3rem',
+    fontSize: '1.25rem'
+  },
+  medium: {
+    height: '2.25rem',
+    fontSize: '1rem'
+  },
+  small: {
+    height: '1.75rem',
+    fontSize: '0.875rem'
+  }
+};
+
+const sizeStyles = css`
+  ${({ size }) => css`
+    height: ${sizes[size].height};
+    font-size: ${sizes[size].fontSize};
+  `}
+`;
+
+const StyledButton = styled.button`
+  ...
+
+  /* 색상 */
+  ${sizeStyles}
+
+  ...
+`;
+```
+
+> > - 색상에 추가 조건 시 코드 예제
+```javascript
+const colorStyles = css`
+  ${({ theme, color }) => {
+    const selected = theme.palette[color];
+    return css`
+      ...
+      ${props =>
+        props.outline &&
+        css`
+          color: ${selected};
+          background: none;
+          border: 1px solid ${selected};
+          &:hover {
+            background: ${selected};
+            color: white;
+          }
+        `}
+    `;
+  }}
+`;
+
+const StyledButton = styled.button`
+  ...
+
+  /* 색상 */
+  ${colorStyles}
+
+  ...
+`;
+
+function Button({ children, color, size, outline,  ...rest }) {
+  return (
+    <StyledButton
+      color={color}
+      size={size}
+      outline={outline}
+      {...rest}
+    >
+      {children}
+    </StyledButton>
+  );
+}
+```
