@@ -283,7 +283,12 @@ $ sudo gem install cocoapods
 // $ brew cleanup -d -v
 // $ brew install cocoapods
 // 링크 관련하여 오류 발생시 "brew link cocoapods" 실행이 필요할 수 있음
- ```
+// => Xcode 버전 9.2로 업데이트하라고 경고뜸
+//    Xcode 버전 9.2 os 사양 10.12.6 및 이후 버전으로 설치하면 됨
+
+// 버전 확인
+$ pod --version
+```
 
 **9. React Native CLI**
   - 설치
