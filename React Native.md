@@ -7,7 +7,7 @@
 - 안드로이드 SDK(소프트웨어 개발 키트)를 이용해 Java, Kotlin 언어로 만드는 APP과 iOS 기반 SDK를 이용해 Swift (스위프트)로 만드는 APP이 있음    
 
 - Native APP의 장점
-  - 성능이 웹앱 , 하이브리드 앱에 비하여 가장 높음
+  - 성능이 WEB APP, Hybrid APP에 비하여 가장 높음
   - 네이티브 API를 호출하여 사용함으로 플랫폼과 밀착되어 있음
   - Java, Swift 등 네이티브 언어에 익숙한 사용자라면 쉽게 사용할 수 있음
 
@@ -73,6 +73,7 @@
   - JS 번들은 JS Thread에 의해 실행이되는데 각 platform에서 app을 실행하기 위한 native threads는 
     js thread와 직접 커뮤니케이션할 수 없고 react native에서 제공하는 bridge에 의해 상호작용을 하게됨
 
+![image](https://user-images.githubusercontent.com/53929446/122493017-e0dcd880-d021-11eb-8e9d-0058053c6be4.png)
 
 
 
