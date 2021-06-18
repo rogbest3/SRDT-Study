@@ -1,6 +1,6 @@
 ## React Native
 
-### Native APP, WEB APP, Hybrid APP
+### Native APP vs WEB APP vs Hybrid APP
 #### Native APP 
 - application을 의미
 - 모바일 기기에 최적화 된 언어로 개발된 APP
