@@ -228,7 +228,22 @@ Version xx.x.x-xxxxxxx
 
 - JAVA
   - JDK ( JAVA Development Kit ) 설치
-    - orcle java 검색하여 Java SE 11(LTS) 버전 JDK 다운
+    - orcle java 검색하여 JDK 다운
+      - 오라클 Java SE 유상 버전
+        - Java6 version 45 이후 (6u45~)
+        - Java7 version 80 이후 (7u80~)
+        - Java8 version 211 이후 (8u211~)
+        - Java11이후 버전 모두 (11, 12, 13, 14, 15)
+
+        - 오라클 Java 무료 버전
+          - Java SE 4: 1.4.2._30
+          - Java SE 5: 1.5.22
+          - Java SE 6: 1.6.45
+          - Java SE 7: 1.7.80
+          - Java SE 8: 1.8.0_202
+          
+          - 무료버전은 아래의 링크에서 다운
+            - https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html
     - 
 - XCode
 - Visual Studio Code
