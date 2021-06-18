@@ -70,15 +70,92 @@
 - 자바스크립트 코드를 각 OS platform에 타겟팅해줌
 
 - App을 빌드할 때 App의 전체 로직을 가지고 있는 JS 번들 만들고 이 번들을 각 platform에 삽입
-  - JS 번들은 JS Thread에 의해 실행이되는데 각 platform에서 app을 실행하기 위한 native threads는 
-    js thread와 직접 커뮤니케이션할 수 없고 react native에서 제공하는 bridge에 의해 상호작용을 하게됨
+  - JS 번들은 JS Thread에 의해 실행이되는데 각 platform에서 APP을 실행하기 위한 Native Threads는 
+    JS Thread와 직접 커뮤니케이션할 수 없고 React Native에서 제공하는 Bridge에 의해 상호작용을 하게됨
+     - React Native로 각 platform의 Native APP 제작이 가능한 이유는 Bridge라는 개념을 제공하기 때문
 
 <img src="https://user-images.githubusercontent.com/53929446/122493017-e0dcd880-d021-11eb-8e9d-0058053c6be4.png" width="600px" height="400px"></img>
 
 
+#### APP을 실행시키기 위한 방법
+- Expo CLI
+  - 장점
+    - 개발 환경 구축이 용이
+    - 실제 개발이 쉽고 편함
+    
+  - 단점
+    - OS Layer와 직접 상호작용 불가능 ( Jave, Kotlin, obj-C, Swift로 추가 작성 불가 )
+    - Expo에서 제공해주는 모듈만 사용 가능
+    - Expo Client에서는 잘 동작하지만 실제 Simulator 및 단말기에서 잘 동작하지 않을 수 있음
+    - 개발 관점에서의 자유도 낮음
+
+- React Native CLI
+  - 장점
+    - Expo로 접근하지 못하는 Native 기능에 접근 가능 ( Native 모듈 사용 자유도 높음 )
+    - 원하는 언어로 추가 작성 가능 ( Custom Native 모듈 사용 가능 )
+    - 필요한 기능이 있는 경우 모듈을 직접 제작 가능
+    - OS Layer와 직접적인 상호작용 가능
+    
+  - 단점
+    - 초기 개발환경 구축 및 실제 APP 개발 시 다소 시간 소요
+    - Mac일 경우에만, IOS / Android 지원
+
+- React Native CLI 사용 시 Mac 환경에서 개발 권장
+  - Window에서는 지원이 빈약 ( 새로운 업데이트 사항들이 Mac에서만 반영되는 경우 발생 )
+  - iOS, Android Simulator가 Mac에서만 모두 사용 가능 ( Window에서 iOS simulator 사용 X )
+    - 각 platform 별로 native 모듈 기능이 상이하기 때문에 각 platform별 simulator를 기동시켜서 결과를 확인해야 됨
+  - iOS APP를 개발해서 배포하려면 XCODE를 사용해야 하며 XCODE는 Mac에서만 사용 가능
 
 
+#### Installation
+- nvm ( Node Version Manager )
+  - NodeJs의 버전 관리자, NodeJs 설치 Tool
+  - 하나의 컴퓨터에서 여러 NodeJs를 사용하기 위해 버전별로 NodeJs 환경을 격리시키는 역할을 함
+  - nvm을 통해서 원하는 특정 버전의 NodeJs를 원하는 조건에 따라 복수 설치하는 방법이 권장됨
+  - nvm 설치
+    - mac os nvm 설치
+```react
+// nvm 설치
+$ sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
 
+// 확인
+$ nvm ls
+
+-bash: nvm: command not found
+
+// 결과로 위처럼 나오면
+$ vi ~/.bash_profile
+
+vi 에디터로 아래 코드가 있는지 확인
+i 입력하면 insert 모드 동작
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+입력 후 esc 누르고 :wq 입력하여 빠져 나옴
+
+// 재시작
+$ source ~/.bash_profile
+
+// 재확인
+$ nvm ls
+
+->       system
+node -> stable (-> N/A) (default)
+iojs -> N/A (default)
+
+// nvm 버전 확인
+$ nvm --version
+```
+
+- node.js
+- npm ( Node Package Manager )
+- Android Studio
+- JAVA
+- XCode
+- Visual Studio Code
+- CocoaPod
+- React Native CLI
 
 
 
