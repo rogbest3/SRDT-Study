@@ -238,15 +238,15 @@ Version xx.x.x-xxxxxxx
         - Java8 version 211 이후 (8u211~)
         - Java11이후 버전 모두 (11, 12, 13, 14, 15)
 
-        - 오라클 Java 무료 버전
-          - Java SE 4: 1.4.2._30
-          - Java SE 5: 1.5.22
-          - Java SE 6: 1.6.45
-          - Java SE 7: 1.7.80
-          - Java SE 8: 1.8.0_202
-          
-          - 무료버전은 아래의 링크에서 다운
-            - https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html
+      - 오라클 Java 무료 버전
+        - Java SE 4: 1.4.2._30
+        - Java SE 5: 1.5.22
+        - Java SE 6: 1.6.45
+        - Java SE 7: 1.7.80
+        - Java SE 8: 1.8.0_202
+
+        - 무료버전은 아래의 링크에서 다운
+          - https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html
  ```
  // Java 설치 확인
  $ java --version
