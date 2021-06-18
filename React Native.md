@@ -222,11 +222,13 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 $ esc
 $ :wq
 
+// 재시작
+$ source ~/.bash_profile
+
 // 환경 변수 설정 확인
 $ adb
-Android Debug Bridge version x.x.xx
-Version xx.x.x-xxxxxxx
-
+Android Debug Bridge version 1.0.41
+Version 31.0.2-xxxxxxx
 ```
 
 **5. JAVA**
@@ -249,7 +251,7 @@ Version xx.x.x-xxxxxxx
           - https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html
  ```
  // Java 설치 확인
- $ java --version
+ $ java -version
  java xx.x.x
  
  // JDK 위치로 이동
@@ -260,6 +262,8 @@ Version xx.x.x-xxxxxxx
  
 **6. XCode**
   - App Store에서 Xcode 검색 후 설치
+    - Mac OS 버전에 따라 Xcode 사용할 수 있는 버전이 다름
+    - 현재 Mac OS가 v10.12.6으로 Xcode는 v8.3.3 사용 가능
   - Xcode -> Preferences -> Locations 에서 Command Line Tools가 선택되어 있는지 확인
   
 **7. Visual Studio Code**
@@ -285,14 +289,45 @@ $ npm install -g react-native-cli
 $ react-native --version
  ```
 
+
 #### Simulator 구동
+- **프로젝트 생성**
+```
+$ cd ../../workspace/app
 
+// 새로운 프로젝트를 시작할 때는 최신 버전을 권장하지만, 기존 프로젝트를 이어 받을 때는 버전에 주의
+$ react-native init [project name] // 최신 버전
+$ react-native init -version 0.61.5 [project name] // 특정 버전 설치
 
+// 생성한 프로젝트 폴더로 이동
+$ cd [project name]
+```
+  - add 폴더하여 생성한 프로젝트 불러오기
 
+- **iOS Simulator 구동**
+  - 프로젝트 구동
+```
+// vs code 터미널에서 
+$ npm start
 
+// simulator 구동, 새로운 터미널에서 입력
+$ react-native run-ios
 
+```
+  - simulator 단축키
+    - command + R : 수정된 코드를 반영시키는 단축키 ( reload )
+    - reload하지 않고 코드 저장 시 바로 반영 시키는 방법
+      - command + D -> Enable Fast Refresh 선택
 
-
+  - 다른 simulator 구동
+```
+// simulator 구동한 터미널에서 입력
+$ react-native run-ios --simulator="iPhone 8 Plus"
+```
+    - device 모델명
+      - hardware -> Device -> iOS 13.3 에 들어가면 있음
+      
+- **Android Simulator 구동**
 
 
 
