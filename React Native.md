@@ -108,7 +108,7 @@
 
 
 #### 개발 환경 구축 ( Installation )
-1. nvm ( Node Version Manager )
+**1. nvm ( Node Version Manager )**
   - NodeJs의 버전 관리자, NodeJs 설치 Tool
   - 하나의 컴퓨터에서 여러 NodeJs를 사용하기 위해 버전별로 NodeJs 환경을 격리시키는 역할을 함
   - nvm을 통해서 원하는 특정 버전의 NodeJs를 원하는 조건에 따라 복수 설치하는 방법이 권장됨
@@ -149,7 +149,7 @@ $ nvm --version
 0.37.2
 ```
 
-2. node.js
+**2. node.js**
   - nvm을 이용한 nodejs 설치
 ```
 // nvm을 이용한 nodejs 설치
@@ -181,7 +181,7 @@ $ nvm ls
 $ nvm alias default system
 default -> system
 ```
-3. npm ( Node Package Manager )
+**3. npm ( Node Package Manager )**
   - nodeJs로 개발된 프로그램을 편리하게 설치, 업데이트, 삭제해주는 프로그램
     ( nodeJs로 작성된 package를 관리해주는 프로그램 )
   - nodeJs 설치 시 자동 설치됨
@@ -191,7 +191,7 @@ $ npm --version
 6.14.13
 ```
 
-4. Android Studio
+**4. Android Studio**
   - SDK, AVD 설정
     1. configure -> SDK Manager 선택
     2. Android SDK의 SDK Platforms에서 Android (Q)버전 선택
@@ -229,7 +229,7 @@ Version xx.x.x-xxxxxxx
 
 ```
 
-5. JAVA
+**5. JAVA**
   - JDK ( JAVA Development Kit ) 설치
     - orcle java 검색하여 JDK 다운받아 설치
       - 오라클 Java SE 유상 버전
@@ -258,15 +258,15 @@ Version xx.x.x-xxxxxxx
  jdk-xx.x.x.jdk
  ```
  
-6. XCode
+**6. XCode**
   - App Store에서 Xcode 검색 후 설치
   - Xcode -> Preferences -> Locations 에서 Command Line Tools가 선택되어 있는지 확인
   
-7. Visual Studio Code
+**7. Visual Studio Code**
   - mac용으로 다운받아 설치
   - v1.56.2
   
-8. CocoaPod
+**8. CocoaPod**
   - Objective-C, Swift로 개발된 오픈 라이브러리들을 내프로젝트에 간편하게 확장시킬 수 있도록 도와주는 iOS용 프로그램
   - 설치
  ```
@@ -275,7 +275,7 @@ $ sudo gem install cocoapods
  ```
 
 
-9. React Native CLI
+**9. React Native CLI**
   - 설치
  ```
  // 설치
