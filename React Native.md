@@ -107,8 +107,8 @@
   - iOS APP를 개발해서 배포하려면 XCODE를 사용해야 하며 XCODE는 Mac에서만 사용 가능
 
 
-#### Installation
-- nvm ( Node Version Manager )
+#### 개발 환경 구축 ( Installation )
+1. nvm ( Node Version Manager )
   - NodeJs의 버전 관리자, NodeJs 설치 Tool
   - 하나의 컴퓨터에서 여러 NodeJs를 사용하기 위해 버전별로 NodeJs 환경을 격리시키는 역할을 함
   - nvm을 통해서 원하는 특정 버전의 NodeJs를 원하는 조건에 따라 복수 설치하는 방법이 권장됨
@@ -149,7 +149,7 @@ $ nvm --version
 0.37.2
 ```
 
-- node.js
+2. node.js
   - nvm을 이용한 nodejs 설치
 ```
 // nvm을 이용한 nodejs 설치
@@ -181,7 +181,7 @@ $ nvm ls
 $ nvm alias default system
 default -> system
 ```
-- npm ( Node Package Manager )
+3. npm ( Node Package Manager )
   - nodeJs로 개발된 프로그램을 편리하게 설치, 업데이트, 삭제해주는 프로그램
     ( nodeJs로 작성된 package를 관리해주는 프로그램 )
   - nodeJs 설치 시 자동 설치됨
@@ -191,14 +191,17 @@ $ npm --version
 6.14.13
 ```
 
-- Android Studio
-  - SDK 설정
+4. Android Studio
+  - SDK, AVD 설정
     1. configure -> SDK Manager 선택
     2. Android SDK의 SDK Platforms에서 Android (Q)버전 선택
     3. show Package Details 체크박스 선택
     4. 아래 그림과 같이 항목 체크 후 Apply 클릭
     ![image](https://user-images.githubusercontent.com/53929446/122508589-278bfc00-d03d-11eb-875e-46478aae2e91.png)
-    
+    5. configure -> AVD Manager 선택 ( Virtual devices )
+    6. Create Virtual Device 클릭
+    7. Phone에서 선택
+
   - 환경 변수 설정
 ```
 // vi editor 
@@ -209,7 +212,7 @@ $ i
 
 // 환경 변수 설정할 아래의 코드 입력
 // ANDROID_HOME의 주소와 Android Studio의 Android SDK Location 과 같아야 함
-export ANDROID_HOME=/
+export ANDROID_HOME=/Users/mac/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
@@ -226,9 +229,9 @@ Version xx.x.x-xxxxxxx
 
 ```
 
-- JAVA
+5. JAVA
   - JDK ( JAVA Development Kit ) 설치
-    - orcle java 검색하여 JDK 다운
+    - orcle java 검색하여 JDK 다운받아 설치
       - 오라클 Java SE 유상 버전
         - Java6 version 45 이후 (6u45~)
         - Java7 version 80 이후 (7u80~)
@@ -244,14 +247,66 @@ Version xx.x.x-xxxxxxx
           
           - 무료버전은 아래의 링크에서 다운
             - https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html
-    - 
-- XCode
-- Visual Studio Code
-- CocoaPod
-- React Native CLI
+ ```
+ // Java 설치 확인
+ $ java --version
+ java xx.x.x
+ 
+ // JDK 위치로 이동
+ $ cd /Library/Java/JavaVirtualMAchines/
+ $ ls
+ jdk-xx.x.x.jdk
+ ```
+ 
+6. XCode
+  - App Store에서 Xcode 검색 후 설치
+  - Xcode -> Preferences -> Locations 에서 Command Line Tools가 선택되어 있는지 확인
+  
+7. Visual Studio Code
+  - mac용으로 다운받아 설치
+  - v1.56.2
+  
+8. CocoaPod
+  - Objective-C, Swift로 개발된 오픈 라이브러리들을 내프로젝트에 간편하게 확장시킬 수 있도록 도와주는 iOS용 프로그램
+  - 설치
+ ```
+$ sudo gem install cocoapods
+// 설치 중 에러가 발생하면 os 버전과 xcode 버전에 맞는 cocoapods 특정 버전을 설치해야 함
+ ```
+
+
+9. React Native CLI
+  - 설치
+ ```
+ // 설치
+$ npm install -g react-native-cli
+
+// 버전 확인
+$ react-native --version
+ ```
+
+#### Simulator 구동
 
 
 
-```react
 
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
