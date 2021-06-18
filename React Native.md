@@ -114,7 +114,7 @@
   - nvm을 통해서 원하는 특정 버전의 NodeJs를 원하는 조건에 따라 복수 설치하는 방법이 권장됨
   - nvm 설치
     - mac os nvm 설치
-```react
+```
 // nvm 설치
 $ sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
 
@@ -146,12 +146,90 @@ iojs -> N/A (default)
 
 // nvm 버전 확인
 $ nvm --version
+0.37.2
 ```
 
 - node.js
+  - nvm을 이용한 nodejs 설치
+```
+// nvm을 이용한 nodejs 설치
+$ nvm install 10.15.1
+
+// nodejs 버전 확인
+$ node -v
+v10.15.1
+
+// 다른 버전 설치
+$ nvm install 14.17.0
+
+// 설치한 버전이 여려개 확인됨
+$ nvm ls
+-> v10.15.1
+   v14.17.0
+  
+// 사용할 버전 선택
+$ nvm use 14.17.0
+-> v10.15.1  ( 선택된 상태 )
+  v14.17.0  
+  
+// 완료
+$ nvm ls
+     v10.15.1
+->   v14.17.0
+
+// system 버전 ( default )로 변경 방법
+$ nvm alias default system
+default -> system
+```
 - npm ( Node Package Manager )
+  - nodeJs로 개발된 프로그램을 편리하게 설치, 업데이트, 삭제해주는 프로그램
+    ( nodeJs로 작성된 package를 관리해주는 프로그램 )
+  - nodeJs 설치 시 자동 설치됨
+```
+// npm 설치 확인
+$ npm --version
+6.14.13
+```
+
 - Android Studio
+  - SDK 설정
+    1. configure -> SDK Manager 선택
+    2. Android SDK의 SDK Platforms에서 Android (Q)버전 선택
+    3. show Package Details 체크박스 선택
+    4. 아래 그림과 같이 항목 체크 후 Apply 클릭
+    ![image](https://user-images.githubusercontent.com/53929446/122508589-278bfc00-d03d-11eb-875e-46478aae2e91.png)
+    
+  - 환경 변수 설정
+```
+// vi editor 
+$ vi ~/.bash_profile
+
+// insert mode로 변경
+$ i
+
+// 환경 변수 설정할 아래의 코드 입력
+// ANDROID_HOME의 주소와 Android Studio의 Android SDK Location 과 같아야 함
+export ANDROID_HOME=/
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+// ecs 누르고 :wq 입력하여 저장
+$ esc
+$ :wq
+
+// 환경 변수 설정 확인
+$ adb
+Android Debug Bridge version x.x.xx
+Version xx.x.x-xxxxxxx
+
+```
+
 - JAVA
+  - JDK ( JAVA Development Kit ) 설치
+    - orcle java 검색하여 Java SE 11(LTS) 버전 JDK 다운
+    - 
 - XCode
 - Visual Studio Code
 - CocoaPod
