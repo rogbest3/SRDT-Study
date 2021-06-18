@@ -276,8 +276,14 @@ Version 31.0.2-xxxxxxx
  ```
 $ sudo gem install cocoapods
 // 설치 중 에러가 발생하면 os 버전과 xcode 버전에 맞는 cocoapods 특정 버전을 설치해야 함
- ```
+// $ sudo gem install cocoapods -v 1.8.4
 
+// "sudo gem install cocoapods"로 설치시 오류가 발생
+// rudy의 버전 문제인 듯 추측. 간단한 해결방법은 brew를 사용하여 cocoapods를 설치 
+// $ brew cleanup -d -v
+// $ brew install cocoapods
+// 링크 관련하여 오류 발생시 "brew link cocoapods" 실행이 필요할 수 있음
+ ```
 
 **9. React Native CLI**
   - 설치
