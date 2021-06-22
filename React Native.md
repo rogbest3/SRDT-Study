@@ -264,6 +264,7 @@ Version 31.0.2-xxxxxxx
   - App Store에서 Xcode 검색 후 설치
     - Mac OS 버전에 따라 Xcode 사용할 수 있는 버전이 다름
     - 현재 Mac OS가 v10.12.6으로 Xcode는 v8.3.3 사용 가능
+      ( cocoaPod 설치 시 v9.2로 업데이트하라고 경고 -> OS v10.12.6으로 **v9.2**까지 사용 가능 )
   - Xcode -> Preferences -> Locations 에서 Command Line Tools가 선택되어 있는지 확인
   
 **7. Visual Studio Code**
