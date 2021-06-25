@@ -266,7 +266,28 @@ Version 31.0.2-xxxxxxx
     - 현재 Mac OS가 v10.12.6으로 Xcode는 v8.3.3 사용 가능
       ( cocoaPod 설치 시 v9.2로 업데이트하라고 경고 -> OS v10.12.6으로 **v9.2**까지 사용 가능 )
   - Xcode -> Preferences -> Locations 에서 Command Line Tools가 선택되어 있는지 확인
+  - macOS는 기본적으로 gcc, make와 같은 컴파일 도구가 설치되어 있지 않기 때문에 명령어 도구 Command Line Tools를 설치해야 합니다. 예전에는 Xcode를 전체 설치하고 추가로 명령어 도구를 설치해야 했으나 Xcode용량이 꽤 크고 모든 사람이 IDE가 필요한 게 아니기 때문에 명령어 도구만 따로 설치할 수 있게 변경되었습니다.
   
+ ```
+// homebrew를 설치하면 자동으로 Xcode 명령어 도구를 설치함. 따로 설치하지 않아도 됨.
+$ xcode-select --install
+
+ ```
+ 
+  - homebrew
+brewhomebrew는 각종 커맨드라인 프로그램과 일반 프로그램(크롬..)을 손쉽게 설치해주는 맥용 패키지 매니저입니다.(최근에 리눅스도 지원하기 시작했습니다.) 리눅스의 apt나 yum과 비슷하며 brew외에 MacPorts 라는 패키지 메니저가 있는데 몇몇 단점으로 요즘은 거의 brew를 사용하는 추세입니다. 다양한 프로그램을 복잡한 빌드과정 없이 손쉽게 설치할 수 있고 업데이트, 관리도 간단하므로 안쓸 이유가 없는 필수 프로그램입니다. 
+ 
+```
+// 설치
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+// 확인
+# brew test
+$ brew doctor
+Your system is ready to brew.
+
+```
+
 **7. Visual Studio Code**
   - mac용으로 다운받아 설치
   - v1.56.2
@@ -289,6 +310,7 @@ $ sudo gem install cocoapods
 
 // 버전 확인
 $ pod --version
+1.10.1
 ```
 
 **9. React Native CLI**
@@ -296,16 +318,30 @@ $ pod --version
  ```
  // 설치
 $ npm install -g react-native-cli
+// MAC 터미널에서 npm install 사용 시 EACCES 에러 권한오류가 발생하면
+// sudo ( 관리자 권한 ) 명령어를 붙여주면 정상동작함
+
+// $ sudo npm install -g react-native-cli
 
 // 버전 확인
 $ react-native --version
+2.0.1
  ```
-
 
 #### Simulator 구동
 - **프로젝트 생성**
 ```
-$ cd ../../workspace/app
+// home 디렉토리
+$ cd 
+
+// react-native 폴더 생성
+$ cd mkdir react-native
+
+// react_native_project 프로젝트 생성
+$ react-native init -version 0.61.5 react_native_project
+
+// 생성한 프로젝트 폴더로 이동
+$ cd react_native_project
 
 // 새로운 프로젝트를 시작할 때는 최신 버전을 권장하지만, 기존 프로젝트를 이어 받을 때는 버전에 주의
 $ react-native init [project name] // 최신 버전
@@ -314,6 +350,47 @@ $ react-native init -version 0.61.5 [project name] // 특정 버전 설치
 // 생성한 프로젝트 폴더로 이동
 $ cd [project name]
 ```
+  - 프로젝트 생성 시 에러 발생할 경우
+```
+UnhandledPromiseRejectionWarning: Error: Failed to install CocoaPods dependencies for iOS project, which is required by this template. Please try again manually: "cd ./react_native_project/ios && pod install".
+
+// 위와 같이 에러 발생할 경우 지시한 대로 실행
+$ cd ./react_native_project/ios
+$ pod install
+```
+
+```
+// pod install 시 아래와 같은 에러 발생 시 
+// => Xcode 인식이 되지 않은 문제로 Xcode.app 를 Xcode_9.2.app으로 이름 변경 후 1번이나 2번 수행 후 pod install
+// => 1. Xcode -> Preferences -> Locations 에서 Command Line Tools가 선택
+// => 2. $ sudo xcode-select --switch /Applications/Xcode_9.2.app 
+
+
+
+[!] /bin/bash -c set -e 
+#!/bin/bash 
+# Copyright (c) Facebook, Inc. and its affiliates. 
+# 
+# This source code is licensed under the MIT license found in the 
+# LICENSE file in the root directory of this source tree. 
+set -e 
+
+PLATFORM_NAME="${PLATFORM_NAME:-iphoneos}" 
+CURRENT_ARCH="${CURRENT_ARCH}" 
+
+...
+
+xcrun: error: SDK "iphoneos" cannot be located 
+xcrun: error: unable to lookup item 'Path' in SDK 'iphoneos' /Users/jaeseok-pc/Library/Caches/CocoaPods/Pods/Release/Flipper-Glog/0.3.6-1dfd6/missing: Unknown `--is-lightweight' option 
+Try `/Users/jaeseok-pc/Library/Caches/CocoaPods/Pods/Release/Flipper-Glog/0.3.6-1dfd6/missing --help' for more information 
+configure: WARNING: 'missing' script is too old or missing 
+configure: error: in `/Users/jaeseok-pc/Library/Caches/CocoaPods/Pods/Release/Flipper-Glog/0.3.6-1dfd6': 
+configure: error: C compiler cannot create executables 
+See `config.log' for more details
+
+
+```
+   
   - add 폴더하여 생성한 프로젝트 불러오기
 
 - **iOS Simulator 구동**
