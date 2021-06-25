@@ -350,7 +350,7 @@ $ react-native init -version 0.61.5 [project name] // 특정 버전 설치
 // 생성한 프로젝트 폴더로 이동
 $ cd [project name]
 ```
-  - 프로젝트 생성 시 에러 발생할 경우
+    - 프로젝트 생성 시 에러 발생할 경우
 ```
 UnhandledPromiseRejectionWarning: Error: Failed to install CocoaPods dependencies for iOS project, which is required by this template. Please try again manually: "cd ./react_native_project/ios && pod install".
 
@@ -391,7 +391,7 @@ See `config.log' for more details
 
 ```
    
-  - add 폴더하여 생성한 프로젝트 불러오기
+    - add 폴더하여 생성한 프로젝트 불러오기
 
 - **iOS Simulator 구동**
   - 프로젝트 구동
