@@ -339,7 +339,7 @@ $ cd mkdir react-native
 
 // react_native_project 프로젝트 생성
 // 강의에서는 0.61.5로 사용하지만 Xcode 버전이 낮아 실행되지 않음
-$ react-native init **-version 0.59.4** react_native_project
+$ react-native init --version 0.59.4 react_native_project
 
 
 // 생성한 프로젝트 폴더로 이동
