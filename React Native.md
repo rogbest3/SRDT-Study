@@ -338,19 +338,21 @@ $ cd
 $ cd mkdir react-native
 
 // react_native_project 프로젝트 생성
-$ react-native init -version 0.61.5 react_native_project
+// 강의에서는 0.61.5로 사용하지만 Xcode 버전이 낮아 실행되지 않음
+$ react-native init **-version 0.59.4** react_native_project
+
 
 // 생성한 프로젝트 폴더로 이동
 $ cd react_native_project
 
 // 새로운 프로젝트를 시작할 때는 최신 버전을 권장하지만, 기존 프로젝트를 이어 받을 때는 버전에 주의
 $ react-native init [project name] // 최신 버전
-$ react-native init -version 0.61.5 [project name] // 특정 버전 설치
+$ react-native init -version 0.59.4 [project name] // 특정 버전 설치
 
 // 생성한 프로젝트 폴더로 이동
 $ cd [project name]
 ```
-    - 프로젝트 생성 시 에러 발생할 경우
+  - 프로젝트 생성 시 에러 발생할 경우
 ```
 UnhandledPromiseRejectionWarning: Error: Failed to install CocoaPods dependencies for iOS project, which is required by this template. Please try again manually: "cd ./react_native_project/ios && pod install".
 
@@ -362,10 +364,8 @@ $ pod install
 ```
 // pod install 시 아래와 같은 에러 발생 시 
 // => Xcode 인식이 되지 않은 문제로 Xcode.app 를 Xcode_9.2.app으로 이름 변경 후 1번이나 2번 수행 후 pod install
-// => 1. Xcode -> Preferences -> Locations 에서 Command Line Tools가 선택
-// => 2. $ sudo xcode-select --switch /Applications/Xcode_9.2.app 
-
-
+//   => 1. Xcode -> Preferences -> Locations 에서 Command Line Tools가 선택
+//   => 2. $ sudo xcode-select --switch /Applications/Xcode_9.2.app 
 
 [!] /bin/bash -c set -e 
 #!/bin/bash 
@@ -387,11 +387,9 @@ configure: WARNING: 'missing' script is too old or missing
 configure: error: in `/Users/jaeseok-pc/Library/Caches/CocoaPods/Pods/Release/Flipper-Glog/0.3.6-1dfd6': 
 configure: error: C compiler cannot create executables 
 See `config.log' for more details
-
-
 ```
    
-    - add 폴더하여 생성한 프로젝트 불러오기
+  - add 폴더하여 생성한 프로젝트 불러오기
 
 - **iOS Simulator 구동**
   - 프로젝트 구동
@@ -402,6 +400,13 @@ $ npm start
 // simulator 구동, 새로운 터미널에서 입력
 $ react-native run-ios
 
+// react-native run-ios 에러 시
+ ( Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65. 
+   import <UIKit/UIUserActivity.h/> 에러 )
+=> 현재 Xcode 버전이 낮아 되지 않음 Xcode 10.2.1 이상으로 사용해야하지만 MacOs 버전이 낮아 사용하지 못함
+  해서 react-native 버전을 0.59.4로 사용해야 됨
+  
+  $ react-native init -version 0.59.4 react_native_project
 ```
   - simulator 단축키
     - command + R : 수정된 코드를 반영시키는 단축키 ( reload )
