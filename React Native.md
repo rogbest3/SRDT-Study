@@ -422,7 +422,12 @@ $ react-native run-ios --simulator="iPhone 8 Plus"
       - hardware -> Device -> iOS 13.3 에 들어가면 있음
       
 - **Android Simulator 구동**
-
+  - android studio에서 simulator 구동시킨 구동 ( configure -> AVD Manager -> 원하는 simulator 구동 )
+  
+  - simulator 단축키
+    - R 키 더블클릭 : 수정된 코드를 반영시키는 단축키 ( reload )
+    - reload하지 않고 코드 저장 시 바로 반영 시키는 방법
+      - command + M -> Enable Fast Refresh 선택
 
 
 
