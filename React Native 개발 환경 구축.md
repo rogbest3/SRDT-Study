@@ -347,7 +347,7 @@ $ cd react_native_project
 
 // 새로운 프로젝트를 시작할 때는 최신 버전을 권장하지만, 기존 프로젝트를 이어 받을 때는 버전에 주의
 $ react-native init [project name] // 최신 버전
-$ react-native init -version 0.59.4 [project name] // 특정 버전 설치
+$ react-native init --version 0.59.4 [project name] // 특정 버전 설치
 
 // 생성한 프로젝트 폴더로 이동
 $ cd [project name]
