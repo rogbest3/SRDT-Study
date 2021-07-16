@@ -73,4 +73,20 @@ $ react-native run-ios
 => Picker 렌더링되지 않음...
 ```
 
+ActivityIndicator
+- loading 이미지 사용
+
+Image
+- 이미지 렌더링
+  ```
+  <Image 
+     source={EImage}       // 로컬에서 이미지 가져올 경우
+     source={{uri:"주소"}}  // 서버에서 이미지 가져올 경우
+  />
+  ```
+
+
+
+
+
 
