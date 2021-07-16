@@ -42,14 +42,14 @@ $ npx pod-install
 => The target '프로젝트명-tvOSTests' is declared multiple times.
 
 Podfile 열어서 아래 부분 주석처리 후 저장
-
+```
 target '프로젝트명-tvOS' do
   ...
  # target '프로젝트명-tvOSTests' do
  #   ...
  # end
 end 
-
+```
 // 다시 실행
 $ npx pod-install
 => 성공
