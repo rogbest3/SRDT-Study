@@ -21,13 +21,11 @@
 const styles = StyleSheet.create({
   mainView : { ... }
 })
-
-
+```
 
 Picker
-- 
+- selectBox 기능
 
-```
 // 설치 react-native v0.59은 picker v1.15.0 사용해야됨
 $ npm install @react-native-picker/picker@1.15.0 --save
 
