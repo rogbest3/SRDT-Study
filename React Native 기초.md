@@ -11,10 +11,68 @@
 - Text
   - text를 사용하기 위해선 Text 컴포넌트로 감싸서 사용해야함
 
-- Button
+- styleSheet
   - 
 
+```
+<View style={styles.mainView}>
+  ...
+</View>
+const styles = StyleSheet.create({
+  mainView : { ... }
+})
 
 
+
+Picker
+- 
+
+```
+// 설치 react-native v0.59은 picker v1.15.0 사용해야됨
+$ npm install @react-native-picker/picker@1.15.0 --save
+
+ios 디렉토리에서  
+$ npx pod-install
+=> cocoapods is not supported in this project
+
+$ pod init
+=> Podfile 생성됨
+
+$ npx pod-install
+=> The target '프로젝트명-tvOSTests' is declared multiple times.
+
+Podfile 열어서 아래 부분 주석처리 후 저장
+
+target '프로젝트명-tvOS' do
+  ...
+ # target '프로젝트명-tvOSTests' do
+ #   ...
+ # end
+end 
+
+// 다시 실행
+$ npx pod-install
+=> 성공
+
+// React-Native 0.60 미만 실행
+$ react-native link @react-native-picker/picker
+
+Picker 코드 기입 후 ios 시뮬레이터 실행
+```
+import {Picker} from '@react-native-picker/picker';
+...
+
+<Picker
+  selectedValue={selectedLanguage}
+>
+  <Picker.Item label="Java" value="java" />
+  <Picker.Item label="JavaScript" value="js" />
+</Picker>
+```
+$ npm start
+$ react-native run-ios
+
+=> Picker 렌더링되지 않음...
+```
 
 
