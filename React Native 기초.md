@@ -67,11 +67,12 @@ import {Picker} from '@react-native-picker/picker';
   <Picker.Item label="JavaScript" value="js" />
 </Picker>
 ```
+
 $ npm start
 $ react-native run-ios
 
 => Picker 렌더링되지 않음...
-```
+
 
 ActivityIndicator
 - loading 이미지 사용
