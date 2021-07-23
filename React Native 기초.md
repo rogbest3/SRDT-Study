@@ -110,7 +110,10 @@ stack navigator library 설치
 $ npm install @react-navigation/stack
 
 drawer navigator library 설치
-npm install @react-navigation/drawer
+$ npm install @react-navigation/drawer
+
+tab navigator library 설치
+$ npm install @react-navigation/bottom-tabs
 
 ```
 - NavigationContainer
@@ -153,4 +156,108 @@ npm install @react-navigation/drawer
   </Drawer.Navigator>
  </NavigationContainer>
  ```
+
+
+ - createBottomTabNavigation()
+  - 스크린, 네비게이터 프로퍼티를 리턴하는 함수
+  - 화면 상단이나 하단에 tab을 생성해서 터치 시 해당 스크린으로 이동하게 도와주는 네비게이터
+
+ ```
+ import { createBottomTabNavigation } from "@react-navigation/bottom-tabs"
+ 
+ const Tab = createBottomTabNavigation()
+ 
+ ...
+ 
+ <NavigationContainer>
+  <Tab.Navigator>                              // Drawer navigator로 동작하는 부분이라고 알려주는 구분자
+    <Tab.Screen name="Home" component={Home}/> // Drawer navigator로 동작하는 화면이 추가될 
+  </Tab.Navigator>
+ </NavigationContainer>
+ ```
+
+- Vector Icon
+  - icon 통일성을 위해 사용
+ 
+```
+https://github.com/oblador/react-native-vector-icons
+
+// 설치
+$ npm install --save react-native-vector-icons
+
+
+// IOS
+1. Xcode에서 프로젝트 오픈
+2. 프로젝트 이름 폴더에서 마우스 우클릭 -> New Group -> Fonts 폴더 생성
+3. 프로젝트 폴더 -> node_modules -> react-native-vector-icons -> Fonts -> Ionicons.ttf 파일을 2번에서 생성한 폴더로 옮김
+  - Add to taegets 에서 프로젝트 이름 파일 선택 ( Tests, -tvOS, -tvOSTests 아님 )
+4. Xcode의 프로젝트 이름 폴더에 있는 info.plist 선택 -> Information Property List에 Fonts Provided by application 입력 후 그 안에 있는 item 0 의 value에 Ionicons.ttf 입력
+5. shift + commend + k 눌러서 clean
+6. commend + b 눌러서 빌드하기
+
+// Android
+1. Vsconde에서 프로젝트 경로에서 android/app/build.gradle 파일의 맨 아래에 아래 코드 추가하여 저장
+
+project.ext.vectoricons = [
+    iconFontNames: [ 'Ionicons.ttf' ] // Name of the font files you want to copy, 추가할 ttf 파일 입력
+]
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+2. android/settings.gradle 파일의 맨 아래에 아래 코드 추가하여 저장
+
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+
+3. android/app/build.gradle 파일의 dependencies 에 아래 코드 추가
+
+dependencies {
+ ...
+ implementation project(':react-native-vector-icons')
+}
+
+
+// iOS, Android 설치 후 컴포넌트에서 Icon import해서 사용
+
+import Icon from "react-native-vector-icons/dist/Ionicons"
+
+```
+  - icon 확인 및 사용 방법
+    1. https://github.com/oblador/react-native-vector-icons 주소에서 Bundled Icon Sets의 Browse All에 들어가서 Icon 확인
+    2. home 검색
+    3. Ionicons 에 있는 icon들의 icon name 사용 ( 예) home_outline
+    4. 아래와 같이 Ionicons 태그로 사용하여 icon 렌더링
+
+```
+<Ionicons name="home_outline" size={20} />
+```
+
+- navigator 혼합 사용
+  - Stack, Tab 혼합
+    - 아래와 같은 구조로 사용 가능
+      ```
+      Stack Navigator
+        - Tab Navigator
+          - Tab Screen 1
+          - Tab Screen 2
+          - Tab Screen 3
+        - Stack Screen 1
+        - Stack Screen 2
+      ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
