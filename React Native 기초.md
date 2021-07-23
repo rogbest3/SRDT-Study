@@ -86,8 +86,71 @@ Image
   />
   ```
 
+#### React Navigation
 
+```
+// 설치
+$ npm install @react-navigation/native
 
+// dependencies 설치
+$ npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
 
+React Native v0.60 미만 시 link 해줘야됨
+참조 https://reactnavigation.org/docs/getting-started/
 
+// ios 디렉토리에 가서 pod install 실행
+$ cd ios
+$ npx pod-install ios
+$ cd ../
+
+// App.js에 import 
+import 'react-native-gesture-handler';
+
+stack navigator library 설치
+$ npm install @react-navigation/stack
+
+drawer navigator library 설치
+npm install @react-navigation/drawer
+
+```
+- NavigationContainer
+  - 네비게이션 구조랑 상태 관리하는 컴포넌트
+  - 모든 네비게이션 구조는 NavigationContainer 태그 안에 들어가야 함
+  
+- createStackNavigation()
+  - 스크린, 네비게이터 프로퍼티를 리턴하는 함수
+  - Header Bar 사용
+ 
+ ```
+ import { createStackNavigation } from "@react-navigation/stack"
+ 
+ const Stack = createStackNavigation()
+ 
+ ...
+ 
+ <NavigationContainer>
+  <Stack.Navigator>                              // stack navigator로 동작하는 부분이라고 알려주는 구분자
+    <Stack.Screen name="Home" component={Home}/> // stack navigator로 동작하는 화면이 추가될 
+  </Stack.Navigator>
+ </NavigationContainer>
+ ```
+
+ - createDrawerNavigation()
+  - 스크린, 네비게이터 프로퍼티를 리턴하는 함수
+  - Side Bar 사용
+  - Header Bar 와 같이 사용할 수 없음
+  
+ ```
+ import { createDrawerNavigation } from "@react-navigation/drawer"
+ 
+ const Drawer = createDrawerNavigation()
+ 
+ ...
+ 
+ <NavigationContainer>
+  <Drawer.Navigator>                              // Drawer navigator로 동작하는 부분이라고 알려주는 구분자
+    <Drawer.Screen name="Home" component={Home}/> // Drawer navigator로 동작하는 화면이 추가될 
+  </Drawer.Navigator>
+ </NavigationContainer>
+ ```
 
