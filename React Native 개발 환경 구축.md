@@ -107,7 +107,7 @@
   - iOS APP를 개발해서 배포하려면 XCODE를 사용해야 하며 XCODE는 Mac에서만 사용 가능
 
 
-#### 개발 환경 구축 ( Installation )
+#### 개발 환경 구축 ( Mac용 Installation )
 **1. nvm ( Node Version Manager )**
   - NodeJs의 버전 관리자, NodeJs 설치 Tool
   - 하나의 컴퓨터에서 여러 NodeJs를 사용하기 위해 버전별로 NodeJs 환경을 격리시키는 역할을 함
@@ -431,3 +431,72 @@ $ react-native run-ios --simulator="iPhone 8 Plus"
 
 
 
+#### 개발 환경 구축 ( Window용 Installation )
+1. nvm 설치 (Node Version Manager)
+2. Node.js 설치 
+3. Python 설치 <--- 생략 가능
+4. Git 설치 <--- 생략 가능
+
+**5. Open JDK 설치**
+  - JDK ( JAVA Development Kit ) 설치
+      - 오라클 Java 무료 버전
+        - Java SE 8: 1.8.0_202
+
+        - 무료버전은 아래의 링크에서 다운
+          - https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html
+ ```
+ // Java 설치 확인
+ workSpace 폴더 우클릭하여 git bash 열고 버전 확인
+ 
+ $ java -version
+java version "1.8.0_202"
+ 
+ ```
+ 
+**6. React Native Cli 설치**
+```
+// 설치
+$ yarn add react-native-cli
+or $ npm install -g react-native-cli
+
+
+// 버전 확인
+$ npm view react-native version
+```
+**7. Android Studio 설치 / 세팅 **
+ -
+  Show Pacakge Details 체크 후 선택
+  
+
+
+  - SDK, AVD 설정
+    1. configure -> SDK Manager 선택
+    2. Android SDK의 SDK Platforms에서 Android (Q)버전 선택
+    3. show Package Details 체크박스 선택
+    4. 아래 그림과 같이 항목 체크 
+    ![image](https://user-images.githubusercontent.com/53929446/127587229-b50f4f3f-c075-4e0e-b843-4e0520f6579b.png)
+      - Android SDK Platform xx
+      - Intel x86 Atom System Image
+      - Google APIs Intel x86 Atom System Image
+      - Google APIs Intel x86 Atom_64 System Image
+    5. SDK tools 탭에서 Google Play Licensing Libaray 체크 후 Apply 클릭
+    6. configure -> AVD Manager 선택 ( Virtual devices )
+    7. Create Virtual Device 클릭
+    8. Phone에서 선택
+
+  - 환경 변수 설정
+    - https://mosei.tistory.com/entry/React-Native-Windows-%EC%97%90%EC%84%9C-react-native-%EB%A1%9C%EC%BB%AC%ED%99%98%EA%B2%BD-%EC%84%B8%ED%8C%85
+    - * 참고사항
+      - 사용자 변수에만 세팅 했지만, 시스템 변수로 세팅해도 무방함
+      - 사용자 변수 : PC의 각 계정에서 사용하는 변수임 (해당 사용자의 계정으로 PC 로그인 시에만 적용 됨. 지역변수 개념)
+      - 시스템 변수 : 모든 계정 적용 (전역변수 개념)
+  
+    ```
+      // 설치 확인
+      $ adb
+      Android Debug Bridge version 1.0.41
+      Version 31.0.3-7562133
+      Installed as C:\Users\minkook_kim\AppData\Local\Android\Sdk\platform-tools\adb.exe
+    ```
+    
+**8. 에뮬레이터 & 안드로이드 폰 실행**
