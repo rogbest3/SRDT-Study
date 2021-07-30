@@ -517,5 +517,15 @@ $ npm view react-native version
   ```
 - 실행
 ```
-$ npx react-native run-android
+$ npm run android
 ```
+- 에러 발생
+  - vmx enabled="no"로 haxm install되지 않음
+    - BIOS로 접근하여 CPU Configuration의 Virtualization Technology를 enabled 해줘야함
+    
+  - VT enabled해도 haxm install 되지 않을 경우
+    - SDK Tools의 Android Emulator 설치
+    
+  - task :app:installdebug failed skipping device 'emulator-5554' (emulator-5554): device is unauthorized 에러
+    - 시뮬레이터 설정 시 System Image를 Google APIs x86_64로 사용
+  
