@@ -475,10 +475,10 @@ $ npm view react-native version
     3. show Package Details 체크박스 선택
     4. 아래 그림과 같이 항목 체크 
     ![image](https://user-images.githubusercontent.com/53929446/127587229-b50f4f3f-c075-4e0e-b843-4e0520f6579b.png)
-      - Android SDK Platform xx
-      - Intel x86 Atom System Image
-      - Google APIs Intel x86 Atom System Image
-      - Google APIs Intel x86 Atom_64 System Image
+       - Android SDK Platform xx
+       - Intel x86 Atom System Image
+       - Google APIs Intel x86 Atom System Image
+       - Google APIs Intel x86 Atom_64 System Image
     5. SDK tools 탭에서 Google Play Licensing Libaray 체크 후 Apply 클릭
     6. configure -> AVD Manager 선택 ( Virtual devices )
     7. Create Virtual Device 클릭
@@ -500,3 +500,22 @@ $ npm view react-native version
     ```
     
 **8. 에뮬레이터 & 안드로이드 폰 실행**
+- **프로젝트 생성**
+  ```
+  // myProject 프로젝트 생성
+  $ react-native init myProject
+
+  // 생성한 프로젝트 폴더로 이동
+  $ cd myProject
+
+  // 새로운 프로젝트를 시작할 때는 최신 버전을 권장하지만, 기존 프로젝트를 이어 받을 때는 버전에 주의
+  $ react-native init [project name] // 최신 버전
+  $ react-native init --version 0.59.4 [project name] // 특정 버전 설치
+
+  // 생성한 프로젝트 폴더로 이동
+  $ cd [project name]
+  ```
+- 실행
+```
+$ npx react-native run-android
+```
